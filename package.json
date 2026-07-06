@@ -1,0 +1,21 @@
+{
+  "name": "proxy-vercel",
+  "version": "0.0.5",
+  "description": "A simple proxy server running on Vercel, allowing you to bypass CORS restrictions and access resources from different origins.",
+  "license": "MIT",
+  "author": "kiyuu",
+  "type": "module",
+  "scripts": {
+    "dev":"vercel dev",
+    "deploy":"vercel --prod",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "@vercel/node": "^5.8.22"
+  },
+  "dependencies": {
+    "@vercel/functions": "^3.7.5",
+    "urlpattern-polyfill": "^10.1.0"
+  }
+}
