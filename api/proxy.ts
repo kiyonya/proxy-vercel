@@ -95,13 +95,15 @@ async function handleRequest(request: Request): Promise<Response> {
         const proxyFetchOptions: RequestInit = {
             method: request.method,
             headers: proxyHeaders,
-            redirect: 'manual'
+            redirect: 'manual',
         };
 
         // PUT POST DELETE PATCH requests may have a body, so we need to clone the request and pass the body to the fetch options
         if (request.method !== 'GET' && request.method !== 'HEAD' && request.method !== 'OPTIONS') {
             const clonedRequest = request.clone();
             proxyFetchOptions.body = clonedRequest.body;
+            //@ts-ignore
+            proxyFetchOptions.duplex = 'half'
         }
 
         const controller = new AbortController();
